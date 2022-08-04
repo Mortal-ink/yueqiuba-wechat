@@ -1,0 +1,102 @@
+var decodeURI = (function(str) {
+    if (str) {
+        return (decodeURIComponent(str))
+    } else {
+        return ('')
+    }
+});
+var dismantleImg = (function(str) {
+    return (str.split("||"))
+});
+var changeNumber = (function(number) {
+    var numList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+    var numListH = ['一', '二', '三', '四', '五', '六', '七', '八', '九', '零'];
+    for (var i = 0; i < numList.length; i++) {
+        if (numList[((nt_0 = (i), null == nt_0 ? undefined : 'number' === typeof nt_0 ? nt_0 : "" + nt_0))] === number) {
+            return (numListH[((nt_1 = (i), null == nt_1 ? undefined : 'number' === typeof nt_1 ? nt_1 : "" + nt_1))])
+        }
+    }
+});
+var dismantleStr = (function(str) {
+    return (str.split(" "))
+});
+var timeDifference = (function(timestampStart, timestampEnd) {
+    var timer = parseInt(timestampEnd) - parseInt(timestampStart);
+    var date_time;
+    var day = parseInt(timer / 3600 / 24);
+    timer = timer % (3600 * 24);
+    var hour = parseInt(timer / 3600);
+    timer = timer % 3600;
+    var minute = parseInt(timer / 60);
+    timer = timer % 60;
+    var second = timer;
+    if (hour < 10) hour = "0" + hour;;
+    if (minute < 10) minute = "0" + minute;;
+    if (second < 10) second = "0" + second;;
+    date_time = ({
+        day: day,
+        hour: hour,
+        minute: minute,
+        second: second,
+        src: day + '天' + hour + '小时' + minute + '' + second + '',
+    });
+    return (date_time)
+});
+var getDatetime = (function(timer) {
+    var date = getDate(timer);
+    var year = date.getFullYear();
+    var month = date.getMonth() + 1;
+    var day = date.getDate();
+    var hour = date.getUTCHours();
+    var minute = date.getUTCMinutes();
+    var second = date.getUTCSeconds();
+    return (({
+        year: year,
+        month: month,
+        day: day,
+        hour: hour,
+        minute: minute,
+        second: second,
+        dateYMD: year + '-' + month + '-' + day,
+        nowTime: hour + ':' + minute,
+        date: year + '年' + month + '月' + day + '日',
+        dateTime: year + '-' + month + '-' + day + ' ' + hour + ':' + minute + ':' + second,
+    }))
+});
+var gapTime = (function(timestampEnd, timestampStart) {
+    var timer = getDate(timestampEnd).getTime() - getDate(timestampStart).getTime();
+    timer = timer / 1000;
+    var year = parseInt(timer / 3600 / 24 / 30 / 12);
+    timer = timer % (3600 * 24 * 30 * 12);
+    var month = parseInt(timer / 3600 / 24 / 30);
+    timer = timer % (3600 * 24 * 30);
+    var day = parseInt(timer / 3600 / 24);
+    timer = timer % (3600 * 24);
+    var hour = parseInt(timer / 3600);
+    timer = timer % 3600;
+    var minute = parseInt(timer / 60);
+    timer = timer % 60;
+    var second = timer;
+    if (year >= 1) {
+        return (year + '年以前')
+    } else if (year === 0 && month >= 1) {
+        return (month + '月以前')
+    } else if (year === 0 && month === 0 && day >= 1) {
+        return (hour + '天以前')
+    } else if (year === 0 && month === 0 && day === 0 && hour >= 1) {
+        return (hour + '小时以前')
+    } else if (year === 0 && month === 0 && day === 0 && hour === 0 && minute >= 1) {
+        return (minute + '分钟以前')
+    } else {
+        return ('刚刚')
+    }
+});
+module.exports = ({
+    decodeURI: decodeURI,
+    dismantleImg: dismantleImg,
+    changeNumber: changeNumber,
+    dismantleStr: dismantleStr,
+    timeDifference: timeDifference,
+    getDatetime: getDatetime,
+    gapTime: gapTime,
+});
