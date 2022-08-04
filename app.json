@@ -1,0 +1,81 @@
+{
+  "pages": [
+    "pages/homePage/index",
+    "pages/welcome/index",
+    "pages/webview/index",
+    "pages/ranking/index",
+    "pages/more/index",
+    "pages/schedule/index",
+    "pages/articleContent/index",
+    "pages/search/search",
+    "pages/mine/index",
+    "pages/login/index",
+    "pages/appointmentball/index",
+    "pages/publishTemp/index",
+    "pages/wallet_reward_author/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#fe6500",
+    "navigationBarTitleText": "约球吧",
+    "enablePullDownRefresh": false
+  },
+  "tabBar": {
+    "color": "#000",
+    "selectedColor": "#fff",
+    "borderStyle": "black",
+    "backgroundColor": "#fe6500",
+    "list": [
+      {
+        "pagePath": "pages/homePage/index",
+        "text": "广场",
+        "iconPath": "resources/images/tabBar/sy.png",
+        "selectedIconPath": "resources/images/tabBar/sy.png"
+      },
+      {
+        "pagePath": "pages/appointmentball/index",
+        "text": "约球",
+        "iconPath": "resources/images/tabBar/lq.png",
+        "selectedIconPath": "resources/images/tabBar/lq.png"
+      },
+      {
+        "pagePath": "pages/mine/index",
+        "text": "我的",
+        "iconPath": "resources/images/tabBar/gr.png",
+        "selectedIconPath": "resources/images/tabBar/gr.png"
+      }
+    ]
+  },
+  "subPackages": [
+    {
+      "root": "appointmentBall/",
+      "independent": false,
+      "pages": [
+        "pages/appointmentBallDetail/index",
+        "pages/appointmentBallMap/index",
+        "pages/gymnasiumList/index",
+        "pages/appointmentBallRelease/index",
+        "pages/gymnasiumDetail/index",
+        "pages/appointmentBallList/index",
+        "pages/yoopreder/index",
+        "pages/teamHome/index",
+        "pages/teamList/index",
+        "pages/playerCard/index",
+        "pages/teamCard/index"
+      ]
+    },
+    {
+      "root": "mine/",
+      "independent": false,
+      "pages": [
+        "pages/list/list",
+        "pages/chat/chat",
+        "pages/about17yq/index",
+        "pages/yooprecord/index",
+        "pages/userinfo/index",
+        "pages/myorder/index"
+      ]
+    }
+  ],
+  "sitemapLocation": "sitemap35.json"
+}

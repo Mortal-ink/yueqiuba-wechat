@@ -1,0 +1,87 @@
+{
+  "cloudfunctionRoot": "yqlogin/",
+  "description": "项目配置文件",
+  "packOptions": {
+    "ignore": [],
+    "include": []
+  },
+  "setting": {
+    "ignoreDevUnusedFiles": false,
+    "ignoreUploadUnusedFiles": false,
+    "urlCheck": false,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": false,
+    "coverView": true,
+    "nodeModules": false,
+    "autoAudits": true,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "uglifyFileName": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "compileHotReLoad": false,
+    "useMultiFrameRuntime": true,
+    "useApiHook": true,
+    "useApiHostProcess": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "enableEngineNative": false,
+    "bundle": false,
+    "useIsolateContext": true,
+    "useCompilerModule": true,
+    "userConfirmedUseCompilerModuleSwitch": false,
+    "userConfirmedBundleSwitch": false,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true
+  },
+  "compileType": "miniprogram",
+  "libVersion": "2.15.0",
+  "appid": "wx051d01c0ab519c39",
+  "projectname": "yueqiuba",
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "cloudfunctionTemplateRoot": "cloudfunctionTemplate/",
+  "condition": {
+    "miniprogram": {
+      "list": [
+        {
+          "name": "appointmentBall/pages/appointmentBallList/index",
+          "pathName": "appointmentBall/pages/appointmentBallList/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "mine/pages/yooprecord/index",
+          "pathName": "mine/pages/yooprecord/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "appointmentBall/pages/appointmentBallDetail/index",
+          "pathName": "appointmentBall/pages/appointmentBallDetail/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "appointmentBall/pages/gymnasiumList/index",
+          "pathName": "appointmentBall/pages/gymnasiumList/index",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  },
+  "editorSetting": {
+    "tabIndent": "insertSpaces",
+    "tabSize": 2
+  }
+}
