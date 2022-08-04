@@ -1,0 +1,6 @@
+{
+    "component": true,
+    "usingComponents": {
+        "cu-custom": "/resources/colorui/components/cu-custom"
+    }
+}

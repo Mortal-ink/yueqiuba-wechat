@@ -1,0 +1,4 @@
+<view class="empty-box">
+    <image mode="widthFix" src="empty.png"></image>
+    <text style="color:#fff;">暂无内容</text>
+</view>
