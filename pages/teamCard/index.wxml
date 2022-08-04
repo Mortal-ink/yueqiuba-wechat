@@ -1,0 +1,41 @@
+<view wx:if="{{isLogin}}">
+<view class="panel">
+    <view class="panel-body">
+                <view class="list">
+                    <view class="squad-card" >
+
+                            <view bindtap="userCardClick" class="squad-card-user-avatar">
+                                    <image class="avatar" src="/resources/images/yoop/back_img.png"></image>
+                                    <view class="squad-card-user-detail">
+                                <view class="squad-card-user-nick-name">
+                                    <text class="nick_name">{{team1}}</text>
+                                </view>
+                            </view>   
+                                </view>
+                       
+                            <button class="button" bindtap="yoop">约战</button>
+                            </view>
+                            <view  class="squad-card" >
+          
+                            <view bindtap="userCardClick" class="squad-card-user-avatar">
+                                    <image class="avatar" src="/appointmentBall/resources/images/team/tm.jpg"></image>
+                                    <view class="squad-card-user-detail">
+                                <view class="squad-card-user-nick-name">
+                                    <text class="nick_name">{{team2}}</text>
+                                </view>
+                            </view> 
+                                </view>
+ 
+                            <button class="button" bindtap="yoop">约战</button>
+                            </view>
+        </view>
+    </view>
+</view>
+</view>
+
+
+
+
+
+
+

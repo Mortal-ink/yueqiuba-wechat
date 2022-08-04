@@ -1,0 +1,160 @@
+<view wx:if="{{isLogin && userHaveTeam}}">
+<view class="panel">
+    <view class="panel-body">
+                <view class="panel-title" bindtap="Toteaminfo">
+                    <image class="userlogo-img" wx:if="{{teamavatarurl}}" mode="aspectFill" src="{{teamavatarurl}}"></image>
+                </view>
+                <view class="teamtitle" >篮球小队</view>
+                <view class="title-1">小队成员</view>
+                <view class="list">
+                    <view bindtap="userCardClick" class="squad-card" >
+                        <view class="squad-card-user">
+                            <view class="squad-card-user-avatar">
+                                <image class="squad-card-user-avatar-sex" src="/appointmentBall/resources/images/team/girl.png" wx:if="{{userInfo.gender==2}}"></image>
+                                <image class="squad-card-user-avatar-sex" src="/appointmentBall/resources/images/team/boy.png" wx:if="{{userInfo.gender!=2}}"></image>
+                                <view class="squad-card-user-avatar-container girl">
+                                    <image class="avatar" src="{{userInfo.avatarUrl}}"></image>
+                                </view>
+                            </view>
+                   
+                    </view>
+                            <view class="squad-card-user-detail">
+                                <view class="squad-card-user-nick-name">
+                                    <text class="nick_name">{{userInfo.nickName}}</text>
+                                    <image class="role-logo" src="/appointmentBall/resources/images/team/leader.png" ></image>
+                                    <!-- <image class="role-logo" src="/appointmentBall/resources/images/team/member.png" wx:if="{{member.teamMemberId!=member.teamCaptainUserId}}"></image> -->
+                                </view>
+                            </view>
+                    </view>
+                    <view bindtap="userCardClick" class="squad-card" >
+                        <view class="squad-card-user">
+                            <view class="squad-card-user-avatar">
+                                <image class="squad-card-user-avatar-sex" src="/appointmentBall/resources/images/team/girl.png" ></image>
+                                <view class="squad-card-user-avatar-container girl">
+                                    <image class="avatar" src="/appointmentBall/resources/images/team/tm.jpg"></image>
+                                </view>
+                            </view>
+                    </view>
+                            <view class="squad-card-user-detail">
+                                <view class="squad-card-user-nick-name">
+                                    <text class="nick_name">{{tmname}}</text>
+                                    <image class="role-logo" src="/appointmentBall/resources/images/team/member.png" ></image>
+                                </view>
+                            </view>
+                            </view>
+                        </view>
+        <view class="padding-xl" wx:if="{{isLeader}}">
+            <button bindtap="invite" class="cu-btn block bg-cyan margin-tb-sm lg">
+                <text class="cuIcon-qr_code"></text> 邀请队员</button>
+            <button bindtap="Disband" class="cu-btn block bg-blue margin-tb-sm lg">
+                <text class="cuIcon-roundclose"></text> 解散小队</button>
+        </view>
+        <!-- <view class="padding-xl" wx:if="{{!isLeader}}">
+            <button bindtap="tuichuTeam" class="cu-btn block bg-cyan margin-tb-sm lg">
+                <text class="cuIcon-pick"></text>退出队伍</button>
+        </view> -->
+                </view>
+</view>
+</view>
+
+    <!-- 未创建队伍视图 -->
+    <scroll-view class="container" wx:if="{{!userHaveTeam}}">
+        <view class=" flex text-center  list cu-list menu bg-white  card-menu margin-top-xl margin-bottom-xl  radius">
+            <view class="padding bg-white">
+                <view class="text-center padding">您还没有队伍</view>
+                <view class="text-center padding">快和小伙伴一起创建一个最强战队吧</view>
+            </view>
+            <view class="padding ">
+                <view bindtap="createTeam" class="cu-btn block bg-white line-orange lg" style="margin-bottom:30rpx;border-left: 0rpx;">
+                    <text class="cuIcon-friend"></text> 创建个人队伍</view>
+                <!-- <navigator url="/mine/pages/userQRCode/index">
+                    <view class="cu-btn block bg-white line-orange lg" style="border-left: 0rpx;">
+                        <text class="cuIcon-same"></text> 通知队长邀请您</view>
+                </navigator> -->
+            </view>
+        </view>
+    </scroll-view>
+
+<!-- 邀请队员弹窗视图 -->
+<view class="cu-modal {{showinvite?'show':''}}" wx:if="{{!invite}}">
+    <view class="cu-dialog">
+        <view class="cu-bar  justify-end" style="background:#fe6500;">
+            <view class="content">邀请队员</view>
+            <view bindtap="hideinvite" class="action">
+                <text class="cuIcon-close text-red"></text>
+            </view>
+        </view>
+        <view class="padding-xl" style="background:#fe6500;">
+            <srcoll-view>
+            <form catchsubmit="formSubmit" >
+            <view class="cu-form-group" style="border-radius: 20rpx;">
+            <view class="title">队员ID</view>
+            <input bindinput="tmID" placeholder="请输入队员ID" value="{{tmID}}"></input>
+            </view>
+        </form>
+            </srcoll-view>
+            <button bindtap="Invite" class="cu-btn  bg-blue margin-tb-sm lg">
+                <text class="cuIcon-activity "></text> 邀请加入队伍</button>
+        </view>
+    </view>
+</view>
+
+<!-- 创建队伍弹窗视图 -->
+<view class="cu-modal {{showCreateTeam?'show':''}}" wx:if="{{!userHaveTeam}}">
+    <view class="cu-dialog">
+        <view class="cu-bar  justify-end" style="background:#fe6500;">
+            <view class="content">创建队伍</view>
+            <view bindtap="hideModal" class="action">
+                <text class="cuIcon-close text-red"></text>
+            </view>
+        </view>
+        <view class="padding-xl" style="background:#fe6500;">
+            <srcoll-view>
+            <view class="userlogo">
+            <view bindtap="uploadImg" wx:if="{{!teamavatarurl}}">
+              <image class="userlogo-img"  mode="widthFix" src="/appointmentBall/resources/images/team/jiahao.png"></image>
+              <view style="color:#ccc;">点击上传队伍队标</view>
+              </view>
+              <image class="userlogo-img" wx:if="{{teamavatarurl}}" mode="aspectFill" src="{{teamavatarurl}}"></image>
+            </view>
+            <form catchsubmit="formSubmit" >
+            <view class="cu-form-group" style="border-radius: 20rpx;">
+            <view class="title">队伍昵称</view>
+            <input bindinput="teamnickFun" placeholder="请输入队伍昵称" name="teamnick" value="{{teamnick}}"></input>
+            </view>
+            <view class="cu-form-group" style="border-radius: 20rpx;">
+                <view class="title">队长昵称</view>
+				<view class="list-text">{{userInfo.nickName}}</view>
+            </view>   
+            <view class="cu-form-group" style="border-radius: 20rpx;">
+                <view class="title">队长联系电话</view>
+                <input bindinput="capphoneFun" placeholder="请输入队长联系电话" name= "capphone" value="{{capphone}}"></input>
+            </view>   
+        </form>
+            </srcoll-view>
+            <button bindtap="createNewTeamFun" class="cu-btn  bg-blue margin-tb-sm lg">
+                <text class="cuIcon-activity "></text> 创建队伍</button>
+        </view>
+    </view>
+</view>
+
+<!-- <view class="cu-modal {{showPhone?'show':''}}">
+    <view class="cu-dialog">
+        <view class="cu-bar  justify-end" style="background:#fe6500;">
+            <view class="content">开启小队约战</view>
+            <view bindtap="hidePhoneModal" class="action">
+                <text class="cuIcon-close text-red"></text>
+            </view>
+        </view>
+        <view class="padding-xl" style="background:#fe6500;">
+            <view class="cu-form-group" style="border-radius: 20rpx;">
+                <view class="title">联系电话</view>
+                <input bindinput="newPhoneFun" placeholder="方便其他队伍联系您"></input>
+            </view>
+            <view></view>
+            <button bindtap="openEngagement" class="cu-btn  bg-blue margin-tb-sm lg">
+                <text class="cuIcon-activity "></text> 开启小队约战</button>
+        </view>
+    </view>
+</view> -->
+<wxs module="tools" src="index.wxss" />

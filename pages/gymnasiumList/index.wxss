@@ -1,0 +1,39 @@
+.orderlist {
+    margin: 30rpx;
+}
+
+.orderlist-item {
+    display: flex;
+    align-items: center;
+    border-radius: 20rpx;
+    background: #fff;
+    padding: 20rpx;
+    min-height: 200rpx;
+}
+
+.content {
+    flex: 1;
+}
+
+.orderlist-item+.orderlist-item {
+    margin-top: 10rpx;
+}
+
+.orderrow {
+    margin: 5rpx 0;
+}
+
+.orderrow-title {
+    font-weight: bold;
+    margin-right: 20rpx;
+}
+
+.pic {
+    width: 200rpx;
+    height: 200rpx;
+    margin-right: 20rpx;
+}
+.orderrow-cont{
+    display: inline-block;
+    width: 130rpx;
+}

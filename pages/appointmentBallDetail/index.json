@@ -1,0 +1,8 @@
+{
+  "navigationBarBackgroundColor": "#fe6500",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "发起约球",
+  "usingComponents": {
+      "cu-custom": "/resources/colorui/components/cu-custom"
+  }
+}

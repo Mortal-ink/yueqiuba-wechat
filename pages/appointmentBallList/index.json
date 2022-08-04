@@ -1,0 +1,7 @@
+{
+  "onReachBottomDistance":50,
+  "enablePullDownRefresh": true,
+  "backgroundColor":"#ffffff",
+  "navigationBarTitleText": "附近球局",
+  "usingComponents": {}
+}

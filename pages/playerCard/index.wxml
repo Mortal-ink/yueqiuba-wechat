@@ -1,0 +1,38 @@
+<view class="UCenter-bg">
+    <image bindtap="changeUserInfo" class="png" mode="aspectFill" src="{{userInfo.userHeadPortrait}}"></image>
+    <view bindtap="changeUserInfo" class="text-xl">{{userNickname}}
+    </view>
+    <view bindtap="changeUserInfo" class="margin-top-sm fontcolorbalck">
+        <text>{{userInfo.userLocation==0?'未知  ':'  '}}</text>
+        <text>{{userInfo.userLocation==1?'大前锋  ':'  '}}</text>
+        <text>{{userInfo.userLocation==2?'小前锋  ':'  '}}</text>
+        <text>{{userInfo.userLocation==3?'中锋  ':'  '}}</text>
+        <text>{{userInfo.userLocation==4?'控球后卫  ':'  '}}</text>
+        <text>{{userInfo.userLocation==5?'得分后卫  ':'  '}}</text>
+        <text>年龄{{userInfo.userAge?userInfo.userAge:'0'}}岁  </text>
+        <text>身高{{userInfo.userHeight?userInfo.userHeight:'0'}}cm  </text>
+        <text>体重{{userInfo.userWeight?userInfo.userWeight:'0'}}kg</text>
+    </view>
+</view>
+<view class="box" style="margin-top:20px;">
+    <view class="cu-bar justify-center ">
+        <view class="action sub-title">
+            <text class="text-xl text-bold text-white">投篮能力热点图</text>
+            <text class="text-ABC text-blue">shoot</text>
+        </view>
+    </view>
+</view>
+<view class=" flex text-center  list cu-list menu bg-white  card-menu margin-top-xl margin-bottom-xl  radius">
+    <canvas canvasId="hitRateCanvas" class="canvasView" id="canvasView" style="border: 1px;width:100%"></canvas>
+</view>
+<view class="box" style="margin-top:20px;">
+    <view class="cu-bar justify-center ">
+        <view class="action sub-title">
+            <text class="text-xl text-bold text-white">技能值五星图</text>
+            <text class="text-ABC text-blue">skill</text>
+        </view>
+    </view>
+</view>
+<view class=" flex text-center  list cu-list menu bg-white  card-menu margin-top-xl margin-bottom-xl  radius">
+    <canvas canvasId="skillCanvas" class="skillView" id="skillView" style="border: 1px;"></canvas>
+</view>

@@ -1,0 +1,32 @@
+<view class="orderlist">
+	<scroll-view scrollY class="scrollLeft">
+		<view class="orderlist-item" wx:for="{{orderlist}}" wx:key="id" bindtap="fSkin" data-id="{{item.id}}">
+		<image mode="aspectFill" class="pic"  src="{{item.gymUrl}}"></image>
+        <view class="content">
+        	<view class="orderrow">
+				<text class="orderrow-title">场馆名称:</text>
+				<text>{{item.gym}}</text>
+			</view>
+			<view class="orderrow">
+				<text class="orderrow-title">场馆联系方式:</text>
+				<text>{{item.gymPhone}}</text>
+			</view>
+			<view class="orderrow">
+				<text class="orderrow-title">场馆地址:</text>
+				<text>{{item.position}}</text>
+			</view>
+			<view class="orderrow">
+				<text class="orderrow-title">价格:</text>
+				<text class="orderrow-cont">{{item.price}}</text>
+                <text class="orderrow-title">开业时间:</text>
+				<text>{{item.time}}</text>
+			</view>
+			<view class="orderrow">
+				<text class="orderrow-title">限制人数:</text>
+				<text class="orderrow-cont" style="width: 78rpx;">{{item.manNum}}</text>
+                <text class="orderrow-title">营业情况:</text>
+				<text>{{item.isbusiniss}}</text>
+			</view></view>
+		</view>
+	</scroll-view>
+</view>

@@ -1,0 +1,46 @@
+
+<view>
+	<view class="container remind-box">
+		<image class="notHaveList-img" src="/resources/images/public/logo.png"></image>
+	</view>
+	<view class="OuterFrame">
+		<form bindsubmit="formSubmit">
+			<view class="cu-form-group">
+				<view class="title">标题</view>
+				<input disabled name="title" value="{{info.title}}"></input>
+			</view>
+			<view class="cu-form-group">
+				<view class="title">发起人</view>
+						<input disabled  value="{{info.name}}" ></input>
+			</view>
+			<view class="cu-form-group">
+				<view class="title">球馆位置</view>
+		<input disabled  value="{{info.site}}"></input>
+		
+			</view>
+      	<view class="cu-form-group">
+				<view class="title">发起人联系方式</view>
+		<input disabled  value="{{info.phone}}"></input>
+		
+			</view>
+         	<view class="cu-form-group">
+				<view class="title">费用</view>
+		<input disabled  value="{{info.cost+'元'}}"></input>
+		
+			</view>
+			<view class="cu-form-group">
+				<view class="title">约球日期</view>
+			<input disabled  value="{{info.time}}"></input>
+			</view>
+      <view class="cu-form-group">
+				<view class="title">活动人数</view>
+			<input disabled  value="{{info.num}}"></input>
+			</view>
+      <view class="cu-form-group">
+				<view class="title">现参与人数</view>
+			<input disabled  value="{{info.snum}}"></input>
+			</view>
+			<button bindtap="quxiaosubmit" class="cu-btn block sure lg" data-type="{{fObject.total !== 0 ? '2':(fObject.rows.length &&(fObject.rows[0].num === fObject.rows[0].snum)? '0':'1')}}">{{fObject.total !== 0 ? '取消报名':(fObject.rows.length && (fObject.rows[0].num === fObject.rows[0].snum) ? '人数已满':'报名')}}</button>
+		</form>
+	</view>
+</view>

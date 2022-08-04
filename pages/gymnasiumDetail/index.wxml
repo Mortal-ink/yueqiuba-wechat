@@ -1,0 +1,123 @@
+<view class="bottom-88">
+    <view class="detai-box">
+        <h1>{{gymnasiumInfo.baseinfo.gymnasiumName}}</h1>
+        <view class="love-box">
+            <image src="/appointmentBall/resources/images/gymnasium_Detail/love_{{i<gymnasiumInfo.baseinfo.gymnasiumLevel?'1':'2'}}.png" wx:for="{{[0,1,2,3,4]}}" wx:for-index="i" wx:key="this"></image>
+            <text>{{gymnasiumInfo.baseinfo.gymnasiumAveragePrice==0?'暂无费用标准':'散客:￥'+gymnasiumInfo.baseinfo.gymnasiumAveragePrice+'元/人'}}</text>
+            <text>当前散客：{{gymnasiumInfo.baseinfo.gymnasiumGuestNum}}人</text>
+        </view>
+        <view class="detail-tips">
+      总体评分:{{gymnasiumInfo.baseinfo.gymnasiumScore!=null?gymnasiumInfo.baseinfo.gymnasiumScore:'5'}}分
+      <text>体育馆</text>
+        </view>
+        <view class="sourceShow">
+            <scroll-view>
+                <block wx:for="{{gymnasiumInfo.sources}}" wx:key="this">
+                    <image src="{{item.gymnasiumSourceUrl}}" wx:if="{{item.gymnasiumSourceType==1}}"></image>
+                    <video src="{{item.gymnasiumSourceUrl}}" wx:if="{{item.gymnasiumSourceType==2}}"></video>
+                </block>
+            </scroll-view>
+        </view>
+        <view class="top-box">
+            <view class="business-box">
+                <image mode="aspectFit" src="/appointmentBall/resources/images/gymnasium_Detail/d_shop.png"></image>营业中
+        <s>常规营业时间:{{gymnasiumInfo.baseinfo.gymnasiumStartTime}} - {{gymnasiumInfo.baseinfo.gymnasiumEndTime}}</s>
+                <view>
+                    <span wx:for="{{gymnasiumInfo.lable}}" wx:key="this">{{item}}</span>
+                </view>
+            </view>
+            <view bindtap="makePhoneCall" class="phone-box">
+                <image mode="aspectFit" src="/appointmentBall/resources/images/gymnasium_Detail/icon_phone.png"></image>
+            </view>
+        </view>
+        <view class="top-box pos-box">
+            <view bindtap="turnToMap">
+                <image mode="aspectFit" src="/appointmentBall/resources/images/gymnasium_Detail/icon_pos2.png"></image>{{gymnasiumInfo.baseinfo.gymnasiumAddress}}
+      </view>
+            <image bindtap="turnToMap" mode="aspectFit" src="/appointmentBall/resources/images/gymnasium_Detail/enter.png"></image>
+        </view>
+        <view class="top-box">
+            <view>
+                <image mode="aspectFit" src="/appointmentBall/resources/images/gymnasium_Detail/d_rz.png"></image>球馆认证
+      </view>
+        </view>
+    </view>
+    <view bindtap="turnToPetShopIntro" class="brief">
+        <h1>球场公告
+      <view bindtap="turnTohospitalIntro" wx:if="{{petsShopDetail.petsShopIntroduce}}">查看更多
+        <image mode="aspectFit" src="/appointmentBall/resources/images/gymnasium_Detail/enter.png"></image>
+            </view>
+        </h1>
+        <text style="color:#fe6500;" wx:if="{{gymnasiumInfo.notice}}">{{gymnasiumInfo.notice[0].notice}}</text>
+        <text class="empty" wx:else>暂无内容</text>
+    </view>
+    <view class="brief two-brief">
+        <h1>场地预定
+      <view bindtap="turnToPetShopService" wx:if="{{petServiceList.length!=0}}">查看全部
+        <image mode="aspectFit" src="/appointmentBall/resources/images/gymnasium_Detail/enter.png"></image>
+            </view>
+        </h1>
+        <view class="brief-box">
+            <view>暂无订场信息</view>
+            <button bindtap="dingchang" class="cu-btn block bg-blue margin-tb-sm lg">
+                <text class="cuIcon-sponsorfill"></text> 我要订场</button>
+        </view>
+    </view>
+    <view class="brief two-brief">
+        <h1>近期比赛
+      <view bindtap="turnToPetSale" wx:if="{{livingList.length!=0}}">查看全部
+        <image mode="aspectFit" src="/appointmentBall/resources/images/gymnasium_Detail/enter.png"></image>
+            </view>
+        </h1>
+        <view class="brief-box">
+            <view bindtap="turnToPetSale" wx:if="{{livingList.length!=0}}" wx:for="{{livingList}}" wx:key="this">
+                <image mode="aspectFill" src="{{item.petsLiveCover}}" style="height:{{briefHeight}}rpx"></image>
+                <h1>{{item.petsLiveTitle}}</h1>
+                <b>{{item.price}}
+          <small>元/只</small>
+                </b>
+            </view>
+            <view>暂无比赛</view>
+        </view>
+    </view>
+    <view class="brief two-brief">
+        <h1>球馆球友群
+    </h1>
+        <view class="brief-box" wx:if="{{gymnasiumInfo.baseinfo.qrCode}}">
+            <view style="text-align:">请保存图片到本地识别</view>
+            <image bindtap="previewImg" class="img" src="{{gymnasiumInfo.baseinfo.qrCode}}"></image>
+        </view>
+        <view class="brief-box" wx:if="{{!gymnasiumInfo.baseinfo.qrCode}}">
+            <view> 暂无信息</view>
+        </view>
+    </view>
+</view>
+<view bindtap="hideModal" class="cu-modal bottom-modal {{showdingchang?'show':''}}">
+    <view catchtap class="cu-dialog">
+        <view class="cu-bar bg-white">
+            <view bindtap="hideModal" class="action text-blue">取消</view>
+            <view bindtap="hideModal" class="action text-green">确定</view>
+        </view>
+        <view class="grid  padding-sm">
+            <text class="text-black text-bold">暂不支持在线订场请电话联系</text>
+        </view>
+    </view>
+</view>
+<view class="phoneCall" wx:if="{{showPhone}}">
+    <image bindtap="makePhoneCall" class="close" src="/appointmentBall/resources/images/gymnasium_Detail/31_03.png"></image>
+    <view class="indicate">联系球馆</view>
+    <view class="shopInfo" wx:if="{{gymnasiumInfo.baseinfo.gymnasiumPhone}}">
+        <view>{{gymnasiumInfo.baseinfo.gymnasiumPhone}}</view>
+        <view>此号码暂不支持短信收发功能</view>
+    </view>
+    <view class="shopInfo" wx:if="{{!gymnasiumInfo.baseinfo.gymnasiumPhone}}">
+        <view>暂无号码</view>
+    </view>
+    <view bindtap="call" class="phoneNumber" data-phone="{{gymnasiumInfo.baseinfo.gymnasiumPhone}}" wx:if="{{gymnasiumInfo.baseinfo.gymnasiumPhone}}">
+        <button round size="large" style="background:#fe6500;color:#fff;" type="warning">立即呼叫</button>
+    </view>
+    <view class="phoneNumber" wx:if="{{!gymnasiumInfo.baseinfo.gymnasiumPhone}}">
+        <button round size="large" style="background:#aaa;color:#fff;" type="warning">暂无联系方式</button>
+    </view>
+</view>
+<view class="mask" wx:if="{{showMask}}"></view>

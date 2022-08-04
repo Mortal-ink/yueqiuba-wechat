@@ -1,0 +1,36 @@
+
+<view>
+	<view class="container remind-box">
+		<image class="notHaveList-img" src="/resources/images/public/logo.png"></image>
+	</view>
+	<view class="OuterFrame">
+		<form bindsubmit="formSubmit">
+			<view class="cu-form-group">
+				<view class="title">标题</view>
+				<input name="title" value="{{formData.title}}" bindblur="titleinput" placeholder="请输入标题"></input>
+			</view>
+		
+			<view class="cu-form-group">
+				<view class="title">球馆名称</view>
+			<input name="q" disabled value="{{gymname}}"></input>
+			</view>
+			<view class="cu-form-group">
+				<view class="title">约定时间</view>
+				<picker mode="multiSelector"  
+				value="{{dateTime}}"
+				bindchange="changeDateTime" bindcolumnchange="changeDateTimeColumn"
+				range="{{dateTimeArray}}">
+					<view class="picker">
+					{{dateTimeArray[0][dateTime[0]]}}-{{dateTimeArray[1][dateTime[1]]}}-{{dateTimeArray[2][dateTime[2]]}} {{dateTimeArray[3][dateTime[3]]}}:{{dateTimeArray[4][dateTime[4]]}}
+						<!-- {{formData.date ? formData.date : '请选择'}} -->
+					</view>
+				</picker>
+			</view>
+			<view class="cu-form-group">
+				<view class="title">预约人数</view>
+						<input type="number" name="b" value="{{formData.mannum}}" bindblur="personinput" placeholder="请输入预约人数"></input>
+			</view>
+			<button bindtap="quxiaosubmit" class="cu-btn block bg-grey lg"> 预约</button>
+		</form>
+	</view>
+</view>

@@ -1,0 +1,30 @@
+
+<view>
+	<view class="container remind-box">
+		<image class="notHaveList-img" src="/resources/images/yoop/back_img.png"></image>
+	</view>
+	<view class="OuterFrame">
+		<form bindsubmit="formSubmit">
+			<view class="cu-form-group">
+				<view class="title">队伍名称</view>
+				<text class="list-text">篮球小队</text>
+			</view>
+			 <view class="cu-form-group">
+				<view class="title">队伍ID</view>
+				<text class="list-text">901537</text>
+				</view>
+				<view class="cu-form-group">
+				<view class="title">队长昵称</view>
+				<text class="list-text">对方正在输入...</text>
+				</view>
+				<view class="cu-form-group">
+				<view class="title">队长联系方式</view>
+				<text class="list-text">12345678900</text>
+				</view>
+				<view class="cu-form-group">
+				<view class="title">队伍人数</view>
+				<text class="list-text">2</text>
+				</view>
+			</form>
+</view>
+</view>

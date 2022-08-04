@@ -1,0 +1,63 @@
+<view class="container remind-box margin-top-300" wx:if="{{showLoading}}">
+    <image class="remind-img" src="/resources/images/welcome/loading.gif"></image>
+    <view class="font-l2-color font-size-30 ">发布中</view>
+</view>
+<view class="container remind-box" wx:if="{{!showLoading}}">
+    <image class="notHaveList-img" src="/resources/images/public/logo.png"></image>
+</view>
+<view class="OuterFrame" wx:if="{{!showLoading}}">
+    <form bindsubmit="formSubmit">
+        <view class="cu-form-group">
+            <view class="title">标题</view>
+            <input name="title" placeholder="请输入标题"></input>
+        </view>
+        <view class="cu-form-group">
+            <view class="title">发起人</view>
+            <input disabled value="{{userNickname}}"></input>
+            <view class="cu-avatar radius bg-gray">
+                <image src="{{userHeadPortrait}}" style="height:100%;"></image>
+            </view>
+        </view>
+        <view class="cu-form-group">
+            <view class="title">联系电话</view>
+            <input name="userPhone" placeholder="方便球友联系您"></input>
+        </view>
+        <view bindtap="chooseLocation" class="cu-form-group">
+            <view class="title">位置</view>
+            <input disabled name="address" placeholder="定位" value="{{address}}"></input>
+            <input disabled name="userSelectLongitude" placeholder="定位" style="display:none;" value="{{userSelectlongitude}}"></input>
+            <input disabled name="userSelectLatitude" placeholder="定位" style="display:none;" value="{{userSelectlatitude}}"></input>
+        </view>
+        <view class="cu-form-group">
+            <view class="title">日期选择</view>
+            <picker bindchange="DateChange" end="{{endDate}}" mode="date" name="date" start="{{startDate}}" value="{{date}}">
+                <view class="picker">
+          {{date}}
+        </view>
+            </picker>
+        </view>
+        <view class="cu-form-group">
+            <view class="title">时间选择</view>
+            <picker bindchange="TimeChange" end="21:00" mode="time" name="time" start="09:00" value="{{time}}">
+                <view class="picker">
+          {{time}}
+        </view>
+            </picker>
+        </view>
+        <view class="cu-form-group align-start">
+            <view class="title">备注</view>
+            <textarea maxlength="-1" name="remarks" placeholder="请添加备注"></textarea>
+        </view>
+        <button class="cu-btn block bg-cyan lg" formType="submit"> 发布</button>
+    </form>
+</view>
+<view class="cu-modal {{DialogModal1?'show':''}}" style="z-index:99;">
+    <view class="cu-dialog">
+        <view class="padding-xl">
+      {{Modal1Value}}
+    </view>
+        <view class="cu-bar bg-cyan">
+            <view bindtap="gotoList" class="action margin-0 flex-sub  solid-left">立即前往</view>
+        </view>
+    </view>
+</view>

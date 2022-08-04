@@ -1,0 +1,33 @@
+
+<view class="wrap" wx:if="{{nearbyList.length > 0}}">
+    <view class="list" wx:for="{{nearbyList}}" wx:key="id" bindtap="goDeatil" data-index="{{index}}">
+        <view>
+        <text class="list-title">标题</text>   
+        <text>{{item.title ? item.title :''}}</text>
+        </view>
+         <view>
+        <text class="list-title">发起人昵称</text>   
+        <text style="margin-right:10rpx">{{item.name}}</text>
+        </view>
+         <view>
+        <text class="list-title">场地地址</text>   
+        <text>{{item.site}}</text>
+        </view>
+        <view>
+         <text class="list-title">约球日期</text>   
+        <text>{{item.time}}</text>
+        </view>
+        
+    </view>
+</view>
+<view wx:if="{{nearbyList.length === 0}}">
+    <view class="container remind-box">
+        <image class="notHaveList-img" src="/resources/images/public/logo.png"></image>
+        <view class="font-l2-color font-size-30 padding-l-20 padding-t-70">附近暂无约球球局可加入</view>
+        <view class="font-l2-color font-size-30 padding-l-20 padding-t-70">快去发布约球，结交新的球友吧</view>
+    </view>
+</view>
+<!-- <view class="container remind-box padding-t-300" wx:if="{{!showLoading}}">
+    <image class="remind-img" src="/resources/images/welcome/loading.gif"></image>
+    <view class="font-l2-color font-size-30 padding-l-20">正在获取附近的球局</view>
+</view> -->

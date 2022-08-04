@@ -1,0 +1,59 @@
+<!-- <scroll-view class="tab-h" scrollLeft="{{scrollLeft}}" scrollX="true">
+    <view bindtap="swichNav" class="tab-item {{currentTab==0?'active':''}}" data-current="0">NBA</view>
+    <view bindtap="swichNav" class="tab-item {{currentTab==1?'active':''}}" data-current="1">CBA</view>
+    <view bindtap="swichNav" class="tab-item {{currentTab==2?'active':''}}" data-current="2">路人王</view>
+    <view bindtap="goToSchedule" class="tab-btn">
+        <image mode="aspectFit" src="../../resources/images/news/sc.png"></image>
+    </view>
+</scroll-view> -->
+<view wx:if="{{currentTab!=2}}">
+    <scroll-view bindscrolltolower="getNoteList"  wx:if="{{articleLists.length>0}}">
+        <view bindtap="gotoContent" class="cu-card article " data-id="{{item.url}}" style="margin-top:-30rpx;" wx:for="{{articleLists}}" wx:key="unique">
+            <view class="cu-item shadow">
+                <view class="content" style="margin-top:30rpx">
+                    <image mode="aspectFill" src="{{item.bigCover}}" wx:if="{{item.bigCover}}"></image>
+                    <image mode="aspectFill" src="{{item.images[0]}}" wx:else></image>
+                    <view class="desc">
+                        <view class="text-content"> {{item.title}}</view>
+                        <view style="color: #888;font-size: 22rpx;">发布日期:{{item.publicTime}}</view>
+                        <view>
+                            <view class="cu-tag bg-red light sm round" wx:if="{{item.coverTagOne}}">{{item.coverTagOne?item.coverTagOne:''}}</view>
+                            <view class="cu-tag bg-green light sm round" wx:if="{{item.coverTagTwo}}">{{item.coverTagTwo?item.coverTagTwo:''}}</view>
+                            <view class="cu-tag bg-blue light sm round" wx:if="{{item.coverTagThree}}">{{item.coverTagThree?item.coverTagThree:''}}</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </scroll-view>
+</view>
+<view wx:else>
+    <scroll-view bindscrolltolower="getNoteList" class="margin-top-180" wx:if="{{articleLists.length>0}}">
+        <view bindtap="getHupuViedo" class="cu-card article " data-id="{{item.vid}}" style="margin-top:-30rpx;" wx:for="{{articleLists}}" wx:key="unique">
+            <view class="cu-item shadow">
+                <view class="content" style="margin-top:30rpx">
+                    <image mode="aspectFill" src="{{item.cover}}"></image>
+                    <view class="desc">
+                        <view class="text-content"> {{item.title}}</view>
+                        <view style="color: #888;font-size: 22rpx;">发布日期:{{item.create_time}}</view>
+                        <view>
+                            <view class="cu-tag bg-red light sm round" wx:if="{{item.score}}">{{item.score!=0?'评分'+item.score:''}}</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </scroll-view>
+</view>
+<empty wx:if="{{articleLists.length==0}}"></empty>
+<view class="cu-modal {{hupuVideoUrl!=null?'show':''}}">
+    <view class="cu-dialog" style="background-color:transparent">
+        <video autoplay="true" bindfullscreenchange="quanping" src="{{hupuVideoUrl}}" style="width:100%;height:103HV;">
+            <view class="cu-bar justify-end text-white" wx:if="{{!quanping}}">
+                <view bindtap="hidevideoModal" class="action">
+                    <text class="cuIcon-close "></text>
+                </view>
+            </view>
+        </video>
+    </view>
+</view>

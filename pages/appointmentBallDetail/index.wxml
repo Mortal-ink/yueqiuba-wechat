@@ -1,0 +1,91 @@
+<!-- <view class="container remind-box margin-t-300" wx:if="{{showLoading}}">
+	<image class="remind-img" src="/resources/images/welcome/loading.gif"></image>
+	<view class="font-l2-color font-size-30 padding-l-20">正在获取球局信息</view>
+</view> -->
+<view>
+	<view class="container remind-box">
+		<image class="notHaveList-img" src="/resources/images/public/logo.png"></image>
+	</view>
+	<view class="OuterFrame">
+		<form bindsubmit="formSubmit">
+			<view class="cu-form-group">
+				<view class="title">标题</view>
+				<input name="title" value="{{formData.title}}" placeholder="请输入标题" bindblur="bindtitle"></input>
+			</view>
+			 <view class="sponsor">
+				<view class="title">发起人</view>
+				<view class="name">{{userInfo.nickName}}</view>
+				<view class="cu-avatar radius bg-gray">
+					<image src="{{userInfo.avatarUrl}}" style="height:100%;"></image>
+				</view>
+			</view> 
+
+			 <view class="sponsor">
+				<view class="title">联系电话</view>
+				<text class="picker">{{12345678900.}}</text>
+			</view> 
+			<view class="cu-form-group">
+				<view class="title">球馆位置</view>
+				<picker bindchange="bindGymChange" range-key="gym" range="{{gymList}}">
+					<view class="picker">
+						{{gymIndex === -1 ? '请选择':gymList[gymIndex].gym}}
+					</view>
+				</picker>
+			</view>
+
+			<view class="cu-form-group">
+				<view class="title">约定时间</view>
+				<picker mode="multiSelector"  
+				value="{{dateTime}}"
+				bindchange="changeDateTime" bindcolumnchange="changeDateTimeColumn"
+				range="{{dateTimeArray}}">
+					<view class="picker">
+					{{dateTimeArray[0][dateTime[0]]}}-{{dateTimeArray[1][dateTime[1]]}}-{{dateTimeArray[2][dateTime[2]]}} {{dateTimeArray[3][dateTime[3]]}}:{{dateTimeArray[4][dateTime[4]]}}
+						<!-- {{formData.date ? formData.date : '请选择'}} -->
+					</view>
+				</picker>
+			</view>
+			
+				<view class="cu-form-group">
+				<view class="title">限制人数</view>
+				<input type="number" name="manNum" value="{{formData.manNum}}" bindblur="bindnum" placeholder="请输入人数"></input>
+			</view>
+			<!-- <view class="cu-form-group  align-start">
+                <map showLocation id="myMap" latitude="{{ordersDetail.userSelectLatitude}}" longitude="{{ordersDetail.userSelectLongitude}}" markers="{{markers}}" scale="17" style="width: 100%; height: 300rpx;z-index:1;"></map>
+            </view> -->
+			<!-- <view class="cu-form-group align-start">
+                <view class="title">备注</view>
+                <textarea maxlength="-1" name="remarks" readonly="true" value="{{ordersDetail.remarks}}"></textarea>
+            </view> -->
+			<button bindtap="quxiaosubmit" class="cu-btn block bg-grey lg"> 发起约球</button>
+			<!-- <button bindtap="baomingsubmit" class="cu-btn block bg-cyan lg" wx:if="{{ordersDetail.initiatorId!=userLoginId}}"> 报名</button> -->
+		</form>
+	</view>
+	<!-- <view class="OuterFrame" style="margin-bottom:100rpx;">
+        <view class="article-list">
+            <view class="article-list-item">
+                <text>已报名人员:{{OrdersUserList.length}}人</text>
+                <image src="/appointmentBall/resources/images/appointmentBall_detail/skills.png"></image>
+            </view>
+        </view>
+        <view wx:if="{{OrdersUserList.length==0}}">
+            <view class="text-cut padding radius" style="width:220px">暂无报名球友~快去分享</view>
+        </view>
+        <view>
+            <view>
+                <view class="list-item" wx:for="{{OrdersUserList}}" wx:key="que">
+                    <view class="list-avatar">
+                        <image class="list-img" src="{{item.userHeadPortrait}}"></image>
+                    </view>
+                    <view class="list-text">
+                        <text class="hero_name">{{item.userNickname}}</text>
+                        <view class="new_tag">球友报道~</view>
+                    </view>
+                    <view class="list-icon">
+                        <image src="/appointmentBall/resources/images/appointmentBall_detail/arrow.svg"></image>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view> -->
+</view>

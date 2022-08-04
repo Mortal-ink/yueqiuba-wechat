@@ -1,0 +1,7 @@
+var nicknameChange = (function(val) {
+    if (val.length == 0 || val == undefined) {
+        return
+    };
+    return (decodeURIComponent(val))
+});
+module.exports.nicknameChange = nicknameChange;
