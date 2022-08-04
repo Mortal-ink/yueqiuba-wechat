@@ -1,0 +1,26 @@
+.main {
+    position: absolute;
+    left: 50%;
+    top: 30%;
+    margin-left: -120px;
+    margin-top: -160px;
+    height: 318px;
+    width: 240px;
+}
+
+.remind-img {
+    height: 318px;
+    width: 240px;
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+page {
+    overflow-y: auto!important;
+}

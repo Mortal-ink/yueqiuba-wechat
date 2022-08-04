@@ -1,0 +1,8 @@
+var sub = (function(val) {
+    if (val.length == 0 || val == undefined) {
+        return
+    };
+    var temp = val.split(" ")[(1)].split(":");
+    return (temp[(0)] + ":" + temp[(1)])
+});
+module.exports.sub = sub;

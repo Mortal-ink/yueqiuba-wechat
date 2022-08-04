@@ -1,0 +1,87 @@
+<view class="box" style="margin-top:20px;">
+    <view class="cu-bar justify-center ">
+        <view class="action sub-title">
+            <text class="text-xl text-bold text-white">烟台排行榜</text>
+            <text class="text-ABC text-blue">yantai</text>
+        </view>
+    </view>
+</view>
+<view class=" flex text-center  list cu-list menu bg-white  card-menu margin-top-xl margin-bottom-xl  radius">
+    <view class="cu-list grid col-3 {{gridBorder?'':'no-border'}}">
+        <view class="cu-item" style="padding-top:80rpx;">
+            <view style="width:72rpx;height:72rpx;margin-left:33%;padding-top:30rpx;z-index:9;">
+                <image mode="widthFix" src="/resources/images/mine/vip.png"></image>
+            </view>
+            <view style="width:100%;text-align:center;">
+                <image class="cu-avatar xl round " src="/resources/images/public/logo.png"></image>
+            </view>
+            <text style="color:#000;font-size:30rpx;">单打王</text>
+            <text style="color:gray;font-size:26rpx;">虚位以待</text>
+        </view>
+        <view class="cu-item">
+            <view style="width:72rpx;height:72rpx;margin-left:33%;padding-top:30rpx;z-index:9;">
+                <image mode="widthFix" src="/resources/images/mine/vip.png"></image>
+            </view>
+            <view style="width:100%;text-align:center;">
+                <image class="cu-avatar xl round " src="/resources/images/public/logo.png"></image>
+            </view>
+            <text style="color:#000;font-size:30rpx;">3V3小队</text>
+            <text style="color:gray;font-size:26rpx;">虚位以待</text>
+        </view>
+        <view class="cu-item" style="padding-top:80rpx;">
+            <view style="width:72rpx;height:72rpx;margin-left:33%;padding-top:30rpx;z-index:9;">
+                <image mode="widthFix" src="/resources/images/mine/vip.png"></image>
+            </view>
+            <view style="width:100%;text-align:center;">
+                <image class="cu-avatar xl round " src="/resources/images/public/logo.png"></image>
+            </view>
+            <text style="color:#000;font-size:30rpx;">三分赛</text>
+            <text style="color:gray;font-size:26rpx;">虚位以待</text>
+        </view>
+    </view>
+</view>
+<view class="box">
+    <view class="cu-bar justify-center ">
+        <view class="action sub-title">
+            <text class="text-xl text-bold text-white">漂洋3V3杯</text>
+            <text class="text-ABC text-blue">3V3</text>
+        </view>
+    </view>
+</view>
+<view class=" flex text-center  list cu-list menu bg-white  card-menu  radius">
+    <view class="cu-list grid col-3 {{gridBorder?'':'no-border'}}">
+        <view class="cu-item" style="padding-top:80rpx;">
+            <view style="width:72rpx;height:72rpx;margin-left:33%;padding-top:30rpx;z-index:9;">
+                <image mode="widthFix" src="/resources/images/mine/vip.png"></image>
+            </view>
+            <view style="width:100%;text-align:center;">
+                <image class="cu-avatar xl round " src="/resources/images/public/logo.png"></image>
+            </view>
+            <text style="color:#000;font-size:30rpx;">漂洋单打王</text>
+            <text style="color:gray;font-size:26rpx;">虚位以待</text>
+        </view>
+        <view class="cu-item">
+            <view style="width:72rpx;height:72rpx;margin-left:33%;padding-top:30rpx;z-index:9;">
+                <image mode="widthFix" src="/resources/images/mine/vip.png"></image>
+            </view>
+            <view style="width:100%;text-align:center;">
+                <image class="cu-avatar xl round " src="/resources/images/public/logo.png"></image>
+            </view>
+            <text style="color:#000;font-size:30rpx;">漂洋TOP队伍</text>
+            <text style="color:gray;font-size:26rpx;">虚位以待</text>
+        </view>
+        <view class="cu-item" style="padding-top:80rpx;">
+            <view style="width:72rpx;height:72rpx;margin-left:33%;padding-top:30rpx;z-index:9;">
+                <image mode="widthFix" src="/resources/images/mine/vip.png"></image>
+            </view>
+            <view style="width:100%;text-align:center;">
+                <image class="cu-avatar xl round " src="/resources/images/public/logo.png"></image>
+            </view>
+            <text style="color:#000;font-size:30rpx;">漂洋神射手</text>
+            <text style="color:gray;font-size:26rpx;">虚位以待</text>
+        </view>
+    </view>
+</view>
+<view class=" flex text-center  list cu-list menu bg-white  card-menu margin-top-xl margin-bottom-xl  radius">
+    <image mode="widthFix" src="/resources/images/public/2020.png" style="width:105%;"></image>
+</view>

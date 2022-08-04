@@ -1,0 +1,41 @@
+.main {
+    position: absolute;
+    left: 50%;
+    top: 30%;
+    margin-left: -120px;
+    margin-top: -160px;
+    height: 318px;
+    width: 240px;
+}
+
+.remind-img {
+    height: 318px;
+    width: 240px;
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.container {
+    box-sizing: border-box;
+    font-family: PingFangSC-Light,helvetica,'Heiti SC';
+}
+
+.title {
+    width: 85%;
+    margin-left: 7.5%;
+    margin-top: 30rpx;
+    font-size: 45rpx;
+    text-align: left;
+    font-weight: bold;
+    color: #f4f4f4;
+}
+
+page {
+    overflow-y: auto!important;
+}

@@ -1,0 +1,8 @@
+{
+    "enablePullDownRefresh": false,
+    "disableScroll": true,
+    "backgroundColor": "#FFF",
+    "usingComponents": {
+        "cu-custom": "/resources/colorui/components/cu-custom"
+    }
+}

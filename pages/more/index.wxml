@@ -1,0 +1,35 @@
+<scroll-view class="container">
+    <view class="title">NBA数据中心</view>
+    <view class=" flex text-center  list cu-list menu bg-white  card-menu margin-top-xl margin-bottom-xl  radius">
+        <view class="cu-list grid col-{{gridCol}} {{gridBorder?'':'no-border'}}">
+            <view bindtap="gotoPages" class="cu-item" data-type="{{item.type}}" data-url="{{item.url}}" wx:for="{{iconList}}" wx:key="unq">
+                <view class="cuIcon-{{item.icon}} text-{{item.color}}">
+                    <view class="cu-tag badge" wx:if="{{item.remark}}">{{item.remark}}</view>
+                </view>
+                <text>{{item.name}}</text>
+            </view>
+        </view>
+    </view>
+    <view class="title">CBA数据中心</view>
+    <view class=" flex text-center  list cu-list menu bg-white  card-menu margin-top-xl margin-bottom-xl  radius">
+        <view class="cu-list grid col-{{gridCol}} {{gridBorder?'':'no-border'}}">
+            <view bindtap="gotoPages" class="cu-item" data-type="{{item.type}}" data-url="{{item.url}}" wx:for="{{cbaiconList}}" wx:key="unq">
+                <view class="cuIcon-{{item.icon}} text-{{item.color}}">
+                    <view class="cu-tag badge" wx:if="{{item.remark}}">{{item.remark}}</view>
+                </view>
+                <text>{{item.name}}</text>
+            </view>
+        </view>
+    </view>
+    <view class="title">周边衍生</view>
+    <view class=" flex text-center  list cu-list menu bg-white  card-menu margin-top-xl margin-bottom-xl  radius">
+        <view class="cu-list grid col-{{gridCol}} {{gridBorder?'':'no-border'}}">
+            <view bindtap="gotoPages" class="cu-item" data-type="{{item.type}}" data-url="{{item.url}}" wx:for="{{zbiconList}}" wx:key="unq">
+                <view class="cuIcon-{{item.icon}} text-{{item.color}}">
+                    <view class="cu-tag badge" wx:if="{{item.remark}}">{{item.remark}}</view>
+                </view>
+                <text>{{item.name}}</text>
+            </view>
+        </view>
+    </view>
+</scroll-view>

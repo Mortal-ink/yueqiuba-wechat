@@ -1,0 +1,16 @@
+        <view  class="swiper" >
+            <image mode="aspectFill" src="../../resources/images/yoop/back_img.png"></image>
+        </view>
+
+<view wx:for="{{modules}}"  wx:key="id" >
+        <view class="right-button">
+            <view bindtap="clickModule" class=" tempClass d-flex flex-auto bg-white align-items-center left-button" data-redirectUrl="{{item.redirectUrl}}" data-redirectUrlType="{{item.redirectUrlType}}">
+                <image class="button-icon" src="{{item.iconurl}}"></image>
+                <view class="d-flex flex-auto flex-column tempClass">
+                    <view class="font-title">{{item.Title}}</view>
+                    <view class="font-cont">{{item.Subtitle}}</view>
+                </view>
+            </view>
+        </view>
+</view>
+

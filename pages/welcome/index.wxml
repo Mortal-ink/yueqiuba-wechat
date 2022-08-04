@@ -1,0 +1,15 @@
+<view bindtap="submitFn" class="container">
+    <image class="bg" mode="aspectFill" src="/resources/images/welcome/first.png"></image>
+    <view class="content">
+        <view class="hd" style="transform:rotateZ({{angle}}deg);">
+            <image class="logo" src="/resources/images/public/logo.png"></image>
+            <image class="wave" mode="aspectFill" src="/resources/images/welcome/wave.png"></image>
+            <image class="wave wave-bg" mode="aspectFill" src="/resources/images/welcome/wave.png"></image>
+        </view>
+        <view class="bd">
+            <view class="login-img text-shadow  text-orange" style="width: 100%;text-align: center;font-size:40rpx;" wx:if="{{!isLogin}}"> 打造约球"新高地" </view>
+            <image class="login-img" src="/resources/images/welcome/loading.gif" wx:if="{{isLogin}}"></image>
+        </view>
+    </view>
+</view>
+

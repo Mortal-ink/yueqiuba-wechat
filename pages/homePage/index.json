@@ -1,0 +1,8 @@
+{
+    "component": true,
+    "navigationBarTitleText": "篮球广场",
+    "enablePullDownRefresh": false,
+    "usingComponents": {
+        "cu-custom": "/resources/colorui/components/cu-custom"
+    }
+}

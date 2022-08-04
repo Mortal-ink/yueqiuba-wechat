@@ -1,0 +1,37 @@
+<swiper autoplay="true" bindchange="cardSwiper" circular="true" class="card-swiper {{DotStyle?'square-dot':'round-dot'}}" duration="500" indicatorActiveColor="#0081ff" indicatorColor="#8799a3" indicatorDots="true" interval="5000">
+    <swiper-item class="{{cardCur==index?'cur':''}}" wx:for="{{swiperList}}" wx:key="unique">
+        <view bindtap="clickImage" class="swiper-item" data-item="{{item}}">
+            <image mode="aspectFill" src="{{item.image}}"></image>
+        </view>
+    </swiper-item>
+</swiper>
+<view wx:for="{{modules}}" wx:key="unique">
+    <view wx:if="{{item.isOpen==1}}">
+        <view class="right-button">
+            <view bindtap="clickModule" class=" tempClass d-flex flex-auto bg-white align-items-center left-button" data-redirectUrl="{{item.redirectUrl}}" data-redirectUrlType="{{item.redirectUrlType}}">
+                <image class="button-icon" src="{{item.iconImageUrl}}"></image>
+                <view class="d-flex flex-auto flex-column tempClass">
+                    <view class="font-title">{{item.moduleTitle}}</view>
+                    <view class="font-cont">{{item.moduleSubtitle}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view style="margin-top:20px;width:100%;float:left;" wx:if="{{modules}}">
+    <view class="font-l2-color font-size-30 padding-l-20">未开放功能 -- 敬请期待</view>
+</view>
+<view wx:for="{{modules}}" wx:key="unique">
+    <view wx:if="{{item.isOpen==2}}">
+        <view class="right-button">
+            <view bindtap="clickModule" class=" tempClass d-flex flex-auto bg-DDDD align-items-center left-button" data-redirectUrl="{{item.redirectUrl}}" data-redirectUrlType="{{item.redirectUrlType}}">
+                <image class="button-icon" src="{{item.iconImageUrl}}"></image>
+                <view class="d-flex flex-auto flex-column tempClass">
+                    <view class="font-title">{{item.moduleTitle}}</view>
+                    <view class="font-cont">{{item.moduleSubtitle}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="copyright padding-t-20" wx:if="{{modules}}">@copyright 2019-2049 一起约球网络科技有限公司</view>

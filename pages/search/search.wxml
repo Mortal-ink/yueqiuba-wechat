@@ -1,0 +1,66 @@
+<scroll-view class="container" style="height: 100%;">
+    <view class="search-header">
+        <view class="input-box">
+            <image class="icon" src="http://nos.netease.com/mailpub/hxm/yanxuan-wap/p/20150730/style/img/icon-normal/search2-2fb94833aa.png"></image>
+            <input bindconfirm="onKeywordConfirm" bindfocus="inputFocus" bindinput="inputChange" class="keywrod" confirmType="search" focus="true" name="input" placeholder="{{defaultKeyword.keyword}}" value="{{keyword}}"></input>
+            <image bindtap="clearKeyword" class="del" src="http://nos.netease.com/mailpub/hxm/yanxuan-wap/p/20150730/style/img/icon-normal/clearIpt-f71b83e3c2.png" wx:if="{{keyword}}"></image>
+        </view>
+        <view bindtap="closeSearch" class="right">取消</view>
+    </view>
+    <view class="no-search" wx:if="{{!searchStatus}}">
+        <view class="serach-keywords search-history" wx:if="{{!keyword&&historyKeyword.length}}">
+            <view class="h">
+                <text class="title">历史记录</text>
+                <image bindtap="clearHistory" class="icon" src="http://nos.netease.com/mailpub/hxm/yanxuan-wap/p/20150730/style/img/icon-normal/del1-93f0a4add4.png"></image>
+            </view>
+            <view class="b">
+                <view bindtap="onKeywordTap" class="item" data-keyword="{{item}}" hoverClass="navigator-hover" wx:for="{{historyKeyword}}">{{item}}</view>
+            </view>
+        </view>
+        <view class="serach-keywords search-hot" wx:if="{{!keyword}}">
+            <view class="h">
+                <text class="title">热门搜索</text>
+            </view>
+            <view class="b">
+                <view bindtap="onKeywordTap" class="item {{item.is_hot===1?'active':''}}" data-keyword="{{item.keyword}}" hoverClass="navigator-hover" wx:for="{{hotKeyword}}">{{item.keyword}}</view>
+            </view>
+        </view>
+        <view class="shelper-list" wx:if="{{keyword}}">
+            <view bindtap="onKeywordTap" class="item" data-keyword="{{item}}" hoverClass="navigator-hover" wx:for="{{helpKeyword}}">{{item}}</view>
+        </view>
+    </view>
+    <view class="search-result" wx:if="{{searchStatus&&goodsList.length}}">
+        <view class="sort">
+            <view class="sort-box">
+                <view bindtap="openSortFilter" class="item {{currentSortType=='default'?'active':''}}" id="defaultSort">
+                    <text class="txt">综合</text>
+                </view>
+                <view bindtap="openSortFilter" class="item by-price {{currentSortType=='price'?'active':''}} {                 {currentSortOrder == 'asc'  ? 'asc' : 'desc'}}" id="priceSort">
+                    <text class="txt">价格</text>
+                </view>
+                <view bindtap="openSortFilter" class="item {{currentSortType=='category'?'active':''}}" id="categoryFilter">
+                    <text class="txt">分类</text>
+                </view>
+            </view>
+            <view class="sort-box-category" wx:if="{{categoryFilter}}">
+                <view bindtap="selectCategory" class="item {{item.checked?'active':''}}" data-category-index="{{index}}" wx:for="{{filterCategory}}" wx:key="cate-{{item.id}}">{{item.name}}</view>
+            </view>
+        </view>
+        <view class="cate-item">
+            <view class="b">
+                <navigator class="item {{(iindex+1)%2==0?'item-b':''}}" url="/pages/goods/goods?id={{iitem.id}}" wx:for="{{goodsList}}" wx:for-index="iindex" wx:for-item="iitem">
+                    <image backgroundSize="cover" class="img" src="{{iitem.list_pic_url}}"></image>
+                    <text class="name">{{iitem.name}}</text>
+                    <view class="tx price">
+                        <text class="pri dzprice">￥{{iitem.retail_price}}</text>
+                        <text class="pri yjprice" wx:if="{{iitem.market_price}}">￥{{iitem.market_price}}</text>
+                    </view>
+                </navigator>
+            </view>
+        </view>
+    </view>
+    <view class="search-result-empty" wx:if="{{!goodsList.length&&!searchStatus}}">
+        <image class="icon" src="http://yanxuan.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/icon-normal/noSearchResult-7572a94f32.png"></image>
+        <text class="text">搜索功能暂未开放~</text>
+    </view>
+</scroll-view>

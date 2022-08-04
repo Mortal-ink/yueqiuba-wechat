@@ -1,0 +1,27 @@
+<scroll-view class="container">
+    <view wx:for="{{scheduleData}}" wx:key="unqite">
+        <view class="title">{{item.dateTime}}</view>
+        <view class="padding flex text-center  list cu-list menu bg-white  card-menu margin-top-xl margin-bottom-xl  radius">
+            <view class="item" data-v-5fc8a3bc="" wx:for="{{item.games}}" wx:for-item="gamesitem" wx:key="unqite">
+                <view class="nation host" data-v-5fc8a3bc="">
+                    <image class="flag" data-v-5fc8a3bc="" src="{{gamesitem.vTeamData.flag}}"></image>
+                    <view class="name" data-v-5fc8a3bc="">{{gamesitem.vTeamData.teamName}}</view>
+                </view>
+                <view class="detail" data-v-5fc8a3bc="">
+                    <header class="ltitle" data-v-5fc8a3bc="">NBA常规赛</header>
+                    <view class="progress" wx:if="{{gamesitem.status!=1}}">{{gamesitem.vTeamScore}} - {{gamesitem.hTeamScore}}</view>
+                    <view class="progress" wx:else>{{tools.sub(gamesitem.gameDateFormat)}}</view>
+                    <view class="cu-tag round bg-grey" wx:if="{{gamesitem.status==4}}">已结束</view>
+                    <view class="cu-tag round bg-blue" wx:if="{{gamesitem.status==2&&gamesitem.quarter<5}}">第{{gamesitem.quarter}}节 {{gamesitem.minutes>9?gamesitem.minutes:'0'+gamesitem.minutes}}:{{gamesitem.seconds>9?gamesitem.seconds:'0'+gamesitem.seconds}}</view>
+                    <view class="cu-tag round bg-red" wx:if="{{gamesitem.status==2&&gamesitem.quarter>5}}">加时赛 {{gamesitem.minutes>9?gamesitem.minutes:'0'+gamesitem.minutes}}:{{gamesitem.seconds>9?gamesitem.seconds:'0'+gamesitem.seconds}}</view>
+                    <view class="cu-tag round bg-yellow" wx:if="{{gamesitem.status==1}}">未开赛</view>
+                </view>
+                <view class="nation visitor" data-v-5fc8a3bc="">
+                    <image class="flag" data-v-5fc8a3bc="" src="{{gamesitem.hTeamData.flag}}"></image>
+                    <view class="name" data-v-5fc8a3bc="">{{gamesitem.hTeamData.teamName}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</scroll-view>
+<wxs module="tools" src="index.wxs" />

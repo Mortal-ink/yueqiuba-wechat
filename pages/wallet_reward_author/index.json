@@ -1,0 +1,8 @@
+{
+    "navigationBarTitleText": "赞赏作者",
+    "navigationBarBackgroundColor": "#d55a4a",
+    "backgroundColor": "#d55a4a",
+    "usingComponents": {
+        "cu-custom": "/resources/colorui/components/cu-custom"
+    }
+}

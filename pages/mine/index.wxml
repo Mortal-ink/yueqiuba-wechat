@@ -1,0 +1,59 @@
+<scroll-view scrollY class="scrollPage">
+    <view  class="UCenter-bg" wx:if="{{!islogin}}">
+        <image class="png" mode="widthFix" src="/resources/images/public/logo.png"></image>
+        <button class="text-xl" bindtap="getUserProfile" >点击登录</button>
+    </view>
+    <view class="UCenter-bg" wx:if="{{islogin}}">
+        <image  class="png" mode="aspectFill" src="{{userInfo.avatarUrl}}"></image>
+        <view  class="text-xl">{{userInfo.nickName}}</view>
+    </view>
+    <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
+        <view class="cu-item arrow">
+            <navigator class="content" url="/mine/pages/userinfo/index">
+                <button class="cu-btn content"> 
+                <image class="button-icon" src="../../resources/images/mine/info.png"></image>
+                <text class="text-grey">个人信息</text>
+                </button>
+            </navigator>
+        </view>
+        <view class="cu-item arrow">
+            <navigator class="content" url="/mine/pages/myorder/index">
+                <button class="cu-btn content"> 
+                <image class="button-icon" src="../../resources/images/mine/order.png"></image>
+                <text class="text-grey">我的订单</text>
+                </button>
+            </navigator>
+        </view>
+        <view class="cu-item arrow">
+            <navigator class="content" url="/mine/pages/yooprecord/index">
+                <button class="cu-btn content">
+                <image class="button-icon" src="../../resources/images/mine/record.png"></image>
+                <text class="text-grey">约球记录</text>
+                </button>
+            </navigator>
+        </view>
+    </view>
+    <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
+        <view class="cu-item arrow">
+            <navigator class="content" url="/mine/pages/list/list">
+            <button class="cu-btn content" >
+                <image class="button-icon" src="../../resources/images/mine/chat.png"></image>
+                <text class="text-grey">小队聊天</text>
+            </button>
+        </navigator>
+        </view>
+        <view class="cu-item arrow">
+            <button class="cu-btn content" bindtap="feedback" openType="feedback">
+                <image class="button-icon" src="../../resources/images/mine/feedback.png"></image>
+                <text class="text-grey">意见反馈</text>
+            </button>
+        </view>
+        <view class="cu-item arrow">
+            <navigator class="content" hoverClass="none" url="/mine/pages/about17yq/index">
+                <image class="png" mode="aspectFit" src="/resources/images/public/logo.png"></image>
+                <text class="text-grey">关于我们</text>
+            </navigator>
+        </view>
+    </view>
+    <view class="cu-tabbar-height"></view>
+</scroll-view>

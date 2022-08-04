@@ -1,0 +1,9 @@
+{
+    "enablePullDownRefresh": false,
+    "disableScroll": true,
+    "navigationBarBackgroundColor": "#fe6500",
+    "backgroundColor": "#FFF",
+    "usingComponents": {
+        "cu-custom": "/resources/colorui/components/cu-custom"
+    }
+}

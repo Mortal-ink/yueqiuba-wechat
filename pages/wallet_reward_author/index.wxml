@@ -1,0 +1,17 @@
+<view class="container1">
+    <view class="header">
+        <view class="group">
+            <image src="/resources/images/public/logo.png" style="background: #fff;"></image>
+            <text class="name">17约球</text>
+        </view>
+    </view>
+    <view class="line"></view>
+    <view class="price-list">
+        <view bindtap="selectItem" class="item" data-item="{{item}}" wx:for="{{prices}}" wx:key="item">
+            <view class="price-box {{selected==item?'active':''}}">
+                <em>
+                    <text class="price">{{item}}</text> 元</em>
+            </view>
+        </view>
+    </view>
+</view>

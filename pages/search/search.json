@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "搜索",
+    "enablePullDownRefresh": false,
+    "usingComponents": {
+        "cu-custom": "/resources/colorui/components/cu-custom"
+    }
+}
